@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Hamburger</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style> /* font-family: 'Open Sans',
+sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+}
+
+nav {
+    position: absolute;
+    height: 100vh;
+    width: 10vw;
+    background-color: rgb(151, 89, 212);
+    top: 0%;
+    right: 0%;
+
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 15px;
+
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 15px 15px;
+    /* border: 1px solid white; */
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    transition: .3s linear;
+}
+
+button {
+    background-color: rgb(151, 89, 212);
+    border: none;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    cursor: pointer;
+}
+
+button i {
+    padding: 20px 20px;
+    font-size: 24px;
+    color: white;
+}
+
+a:hover {
+    background-color: white;
+    color: rgb(151, 89, 212);
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+button:hover i {
+    animation: movingBurger 1s linear infinite;
+}
+
+@keyframes movingBurger {
+
+    /* 0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(0deg);
+    } */
+
+    10% {
+        transform: rotate(30deg);
+    }
+
+    40% {
+        transform: rotate(30deg);
+    }
+
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    60% {
+        transform: rotate(-30deg);
+    }
+
+    90% {
+        transform: rotate(-30deg);
+    }
+
+    /* 90% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    } */
+
+}
+
+
+nav.menu.active {
+    top: 0%;
+    right: -15%;
+}
+
+button.burg.active {
+    top: 10%;
+    right: 0%;
+}
+</style>
+</head>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Aktualności</a></li>
+            <li><a href="#">Historia</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+    <button class="burg"><i class="fas fa-bars"></i></button>
+    
+    const btnBurg = document.querySelector('button.burg')
+    const navMenu = document.querySelector('nav.menu')
+
+    btnBurg.addEventListener('click', function(){
+    btnBurg.classList.toggle('active');
+    navMenu.classList.toggle('active')
+})
+</body>
+
+</html>
