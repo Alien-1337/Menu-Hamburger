@@ -9,7 +9,9 @@
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-<style> /* font-family: 'Open Sans',
+<style> 
+
+/* font-family: 'Open Sans',
 sans-serif; */
 
 * {
@@ -144,7 +146,7 @@ button.burg.active {
         </ul>
     </nav>
     <button class="burg"><i class="fas fa-bars"></i></button>
-    
+   <script> 
     const btnBurg = document.querySelector('button.burg')
     const navMenu = document.querySelector('nav.menu')
 
@@ -152,6 +154,7 @@ button.burg.active {
     btnBurg.classList.toggle('active');
     navMenu.classList.toggle('active')
 })
+</script>
 </body>
 
 </html>
