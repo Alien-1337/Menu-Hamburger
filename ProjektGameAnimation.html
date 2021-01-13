@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacja Giereczki</title>
+
+    <style>
+        :root {
+            --ballSize: 50px;
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        div.table {
+            width: 800px;
+            height: 600px;
+            border: 2px solid #444;
+            background-color: transparent;
+            margin: 100px auto;
+            position: relative;
+
+        }
+
+        div.weird {
+            width: 60px;
+            height: 60px;
+            background-color: indigo;
+            position: absolute;
+            top: 9%;
+            left: 17%;
+            border-radius: 15% 45%;
+            box-shadow: 0 0 0 2px white, 0 0 5px 4px #333;
+            animation: weirdo 10s linear infinite;
+        }
+
+        div.weird2 {
+            width: 60px;
+            height: 60px;
+            background-color: lightslategray;
+            position: absolute;
+            top: 5%;
+            left: 17%;
+            border-radius: 15% 45%;
+            box-shadow: 0 0 0 2px white, 0 0 5px 4px #333;
+            animation: weirdo 10s linear infinite reverse;
+        }
+
+        div.pillar1 {
+            width: 5%;
+            height: 5%;
+            position: absolute;
+            background-color: green;
+            top: 0%;
+            left: 0%;
+            animation: pillar 8s linear;
+        }
+
+        div.pillar2 {
+            width: 5%;
+            height: 5%;
+            position: absolute;
+            background-color: rgb(233, 229, 216);
+            top: 0%;
+            left: 5%;
+            animation: pillar 9s linear;
+        }
+
+        div.pillar3 {
+            width: 5%;
+            height: 5%;
+            position: absolute;
+            background-color: rgb(138, 43, 43);
+            top: 0%;
+            left: 10%;
+            animation: pillar 10s linear;
+        }
+
+
+        div.table::after {
+            background-image: url(bgimfire.jpg);
+            background-size: cover;
+            opacity: 0.4;
+            width: 100%;
+            height: 100%;
+            content: "";
+            display: block;
+            position: absolute;
+        }
+
+        div.ball {
+            width: 50px;
+            height: 50px;
+            background-image: url(ballfire.jpg);
+            border-radius: 50%;
+            animation: rotation 3s linear infinite, ballmove 10s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        div.paddle1 {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background-image: linear-gradient(#333 10%, #666 40%, #666 70%, #333 100%);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            margin-left: 30px;
+            animation: paddlePlayer 10s linear infinite;
+        }
+
+        div.paddle2 {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background-image: linear-gradient(#333 10%, #666 40%, #666 70%, #333 100%);
+            top: 50%;
+            left: 0;
+            margin-left: 750px;
+            transform: translateY(-50%);
+            animation: paddleAI 10s infinite linear;
+        }
+
+        h1 {
+            position: absolute;
+            top: 3%;
+            left: 50%;
+            width: 100%;
+            margin: 0 auto;
+            animation: winner 10s 1.5s infinite ease;
+            opacity: 0;
+            font-family: arial, sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        @keyframes rotation {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        @keyframes ballmove {
+            15% {
+                top: 20%;
+                left: 6.2%;
+            }
+
+            30% {
+                top: 0;
+                left: 40%;
+            }
+
+            60% {
+                top: calc(100% - var(--ballSize));
+                left: 70%;
+            }
+
+            85% {
+                top: 0;
+                left: 85%;
+                opacity: 1;
+            }
+
+            92% {
+                top: 15%;
+                left: 100%;
+                opacity: 1
+            }
+
+            100% {
+                top: 15%;
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes paddlePlayer {
+            15% {
+                top: 20%;
+            }
+
+            40% {
+                top: calc(0 - 60px);
+            }
+
+            60% {
+                top: 70%;
+            }
+
+            80% {
+                top: 85%;
+            }
+
+            100% {
+                top: 50%;
+            }
+        }
+
+        @keyframes paddleAI {
+            20% {
+                top: calc(100% - 30px);
+            }
+
+            40% {
+                top: 50%;
+            }
+
+            60% {
+                top: 90%;
+            }
+
+            80% {
+                top: 40%;
+            }
+
+            100% {
+                top: 15%;
+            }
+        }
+
+        @keyframes winner {
+
+            0% {
+                opacity: 0;
+            }
+
+            75% {
+                opacity: 0;
+            }
+
+            75.01% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            90.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes pillar {
+            100% {
+                height: 100%;
+            }
+        }
+
+        @keyframes weirdo {
+            12% {
+                top: 2%;
+                left: 30%;
+                transform: rotate(360deg);
+            }
+
+            25% {
+                top: 1%;
+                left: 70%;
+                transform: rotate(720deg)
+            }
+
+            40% {
+                top: 40%;
+                left: 85%;
+                transform: rotate(1080deg)
+            }
+
+            45% {
+                top: 42%;
+                left: 80%;
+            }
+
+            48% {
+                top: 45%;
+                left: 90%;
+            }
+
+            55% {
+                top: 60%;
+                left: 75%;
+                transform: rotate(720deg)
+            }
+
+            65% {
+                top: 80%;
+                left: 85%;
+                transform: rotate(-360deg);
+            }
+
+            75% {
+                top: 90%;
+                left: 50%;
+                transform: rotate(180deg);
+            }
+
+            85% {
+                top: 85%;
+                left: 20%;
+                transform: rotate(-720deg);
+            }
+
+            95% {
+                top: 20%;
+                left: 18%;
+                transform: rotate(-1440deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table">
+        <div class="ball"></div>
+        <div class="paddle1"></div>
+        <div class="paddle2"></div>
+    </div>
+    <h1>You won!</h1>
+    <div class="pillar1"></div>
+    <div class="pillar2"></div>
+    <div class="pillar3"></div>
+    <div class="weird"></div>
+    <div class="weird2"></div>
+
+</body>
+
+</html>
